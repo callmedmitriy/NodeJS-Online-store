@@ -3,10 +3,11 @@ const fs = require("fs")
 const path = require("path")
 
 class News {
-    constructor(title, description, img) {
+    constructor(title, description, price, img) {
         this.title = title;
         this.description = description;
         this.img = img;
+        this.price = price;
         this.id = uuid.v4();
     }
 
@@ -15,6 +16,7 @@ class News {
             title: this.title,
             description: this.description,
             img: this.img,
+            price: this.price,
             id: this.id,
         }
     }
@@ -53,6 +55,11 @@ class News {
                 }
             )
         })
+    }
+
+    static async getById(id) {
+        const newsList = await News.getAll();
+        return newsList.find(news => news.id === id)
     }
 }
 

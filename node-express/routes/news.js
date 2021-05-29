@@ -12,4 +12,13 @@ router.get("/", async (req, res) => {
   });
 });
 
+router.get("/:id", async (req, res) => {
+  const newsItem = await News.getById(req.params.id);
+  res.render('newsFull', {
+    layout: 'empty',
+    title: newsItem.title,
+    newsItem,
+  })
+})
+
 module.exports = router;

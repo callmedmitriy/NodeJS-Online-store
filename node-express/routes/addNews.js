@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const news = new News(req.body.title, req.body.description, req.body.img);
+  const news = new News(req.body.title, req.body.description, req.body.price, req.body.img);
   await news.save();
   res.redirect("/news")
 })

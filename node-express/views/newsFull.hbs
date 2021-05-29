@@ -1,0 +1,8 @@
+<div class="news-full">
+    <img src="{{newsItem.img}}" alt="{{newsItem.title}}">
+    <h1>{{newsItem.title}}</h1>
+    <p>{{newsItem.description}}</p>
+    {{#if newsItem.price}}
+        <p class="price big">{{newsItem.price}}</p>
+    {{/if}}
+</div>

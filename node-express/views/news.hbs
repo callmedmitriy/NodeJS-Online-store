@@ -11,9 +11,12 @@
         </div>
         <div class="card-content">
           <p>{{description}}</p>
+          {{#if price}}
+          <p class="price">{{price}}</p>
+          {{/if}}
         </div>
         <div class="card-action">
-          <a href="/news/{{id}}">Read</a>
+          <a href="/news/{{id}}" target="_blank">Read</a>
         </div>
       </div>
     </div>
