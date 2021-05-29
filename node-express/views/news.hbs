@@ -1,1 +1,24 @@
 <h1>News</h1>
+
+{{#if newsList.length }}
+<div class="row">
+{{#each newsList}}
+   <div class="col s3">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{img}}" alt="{{title}}" loading="lazy">
+          <span class="card-title">{{title}}</span>
+        </div>
+        <div class="card-content">
+          <p>{{description}}</p>
+        </div>
+        <div class="card-action">
+          <a href="/news/{{id}}">Read</a>
+        </div>
+      </div>
+    </div>
+{{/each}}
+</div>
+{{else}}
+<p>News is empty</p>
+{{/if}}
