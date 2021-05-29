@@ -1,0 +1,24 @@
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Common App</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            {{#if isHome}}
+                <li class="active"><a href="/">Main</a></li>
+            {{else}}
+                <li><a href="/">Main</a></li>
+            {{/if}}
+
+            {{#if isNewsList}}
+                <li class="active"><a href="/news">News</a></li>
+            {{else}}
+                <li><a href="/news">News</a></li>
+            {{/if}}
+
+            {{#if isAddNews}}
+                <li class="active"><a href="/add">Add news</a></li>
+            {{else}}
+                <li><a href="/add">Add news</a></li>
+            {{/if}}
+        </ul>
+    </div>
+</nav>
