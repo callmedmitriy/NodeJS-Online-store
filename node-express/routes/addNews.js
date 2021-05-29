@@ -1,5 +1,6 @@
 const { Router } = require("express");
-const News = require('../models/news');
+const News = require("../models/news");
+
 const router = Router();
 
 router.get("/", (req, res) => {
@@ -10,9 +11,14 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const news = new News(req.body.title, req.body.description, req.body.price, req.body.img);
+  const news = new News(
+    req.body.title,
+    req.body.description,
+    req.body.price,
+    req.body.img
+  );
   await news.save();
-  res.redirect("/news")
-})
+  res.redirect("/news");
+});
 
 module.exports = router;

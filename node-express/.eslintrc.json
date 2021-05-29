@@ -16,5 +16,6 @@
         "ecmaVersion": 12
     },
     "rules": {
-    }
+    },
+    "ignorePatterns": ["*.hbs"]
 }

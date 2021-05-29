@@ -12,29 +12,30 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.get('/:id/edit', async (req, res) => {
+router.get("/:id/edit", async (req, res) => {
   if (!req.query.allow) {
-    return res.redirect('/')
+    res.redirect("/");
+  } else {
+    const news = await News.getById(req.params.id);
+    res.render("newsEdit", {
+      title: `Edit: ${news.title}`,
+      news,
+    });
   }
-  const news = await News.getById(req.params.id);
-  res.render('newsEdit', {
-    title: `Edit: ${news.title}`,
-    news,
-  })
-})
+});
 
-router.post('/edit', async (req, res) => {
-  await News.update(req.body)
-  res.redirect('/news')
-})
+router.post("/edit", async (req, res) => {
+  await News.update(req.body);
+  res.redirect("/news");
+});
 
 router.get("/:id", async (req, res) => {
   const news = await News.getById(req.params.id);
-  res.render('newsFull', {
-    layout: 'empty',
+  res.render("newsFull", {
+    layout: "empty",
     title: news.title,
     news,
-  })
-})
+  });
+});
 
 module.exports = router;
