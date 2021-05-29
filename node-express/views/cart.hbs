@@ -1,0 +1,35 @@
+<h1>Cart</h1>
+
+<div class="cart">
+{{#if news.length }}
+    <table class="highlight responsive-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Count</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{#each news}}
+            <tr>
+                <td>{{title}}</td>
+                <td><span class="price">{{price}}</span></td>
+                <td>
+                    <button class="btn-floating btn-small teal js-edit" data-type="remove" data-id={{id}}>-</button>
+                    {{count}}
+                    <button class="btn-floating btn-small teal js-edit" data-type="add" data-id={{id}}>+</button>
+                </td>
+                <td>
+                    <button class="btn btn-small teal js-delete" data-id={{id}}>Delete</button>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    <p>Total price: <strong class="price" id="cartPrice">{{price}}</strong></p>
+{{else}}
+    <p>Cart is empty</p>
+{{/if}}
+</div>

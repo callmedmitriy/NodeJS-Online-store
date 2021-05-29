@@ -1,0 +1,25 @@
+<h1>Edit {{news.title}}</h1>
+
+<form action="/news/edit" method="POST">
+    <input name="id" type="hidden" value="{{news.id}}" />
+    <div class="input-field">
+        <input id="title" name="title" type="text" class="validate" required value="{{news.title}}"/>
+        <label for="title">Title</label>
+        <span class="helper-text" data-error="Title is required"></span>
+    </div>
+    <div class="input-field">
+        <input id="description" name="description" type="text" class="validate" required value="{{news.description}}"/>
+        <label for="description">Description</label>
+        <span class="helper-text" data-error="Description  is required"></span>
+    </div>
+    <div class="input-field">
+        <input id="price" name="price" type="text" class="validate" value="{{news.price}}"/>
+        <label for="price">Price</label>
+    </div>
+    <div class="input-field">
+        <input id="img" name="img" type="text" class="validate" required value="{{news.img}}" />
+        <label for="img">URL to image</label>
+        <span class="helper-text" data-error="URL is required"></span>
+    </div>
+    <button class="btn btn-primary">Edit</button>
+</form>

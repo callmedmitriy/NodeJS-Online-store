@@ -8,6 +8,7 @@ class News {
         this.description = description;
         this.img = img;
         this.price = price;
+        this.availableToBuy = !!price;
         this.id = uuid.v4();
     }
 
@@ -17,6 +18,7 @@ class News {
             description: this.description,
             img: this.img,
             price: this.price,
+            availableToBuy: this.availableToBuy,
             id: this.id,
         }
     }
@@ -25,6 +27,29 @@ class News {
         const newsList = await News.getAll()
         newsList.push(this.toJSON())
         
+        return new Promise((resolve, reject) => {
+            fs.writeFile(
+                path.join(__dirname, '..', 'data', 'news.json'),
+                JSON.stringify(newsList),
+                (err) => {
+                    if (err) {
+                        reject(err)
+                    } else {
+                        resolve()
+                    }
+    
+                }
+            )
+        })
+    }
+
+    static async update(news) {
+        const newsList = await News.getAll()
+        const idx = newsList.findIndex(n => n.id === news.id)
+        newsList[idx] = {
+            ...news,
+            availableToBuy: !!news.price,
+        };
         return new Promise((resolve, reject) => {
             fs.writeFile(
                 path.join(__dirname, '..', 'data', 'news.json'),

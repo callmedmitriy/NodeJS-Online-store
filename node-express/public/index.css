@@ -5,6 +5,9 @@
 .price {
     font-size: 2rem;
 }
+.cart .price {
+    font-size: 1.2rem;
+}
 
 .news-full {
     display: flex;
@@ -20,4 +23,14 @@
 
 .news-full .price.big {
     font-size: 3rem;
+}
+
+.card-action.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-action.actions form {
+    margin: 0
 }
